@@ -155,7 +155,7 @@ Instead of following fixed rules, the agent interprets the conversation context 
 
 a) Retrieving the ticket conversation
 b) Classifying the category
-c) Identifying whether follow-up is required
+c) Identifying whethert -  follow-up is required
 d) Generating a summary
 
 This is done through tool calling, where the model chooses which functions to use during execution.
