@@ -4,30 +4,30 @@ from agent_exec import executor_agent
 import asyncio
 
 async def main():
-    user_request = "Analise o backlog da sprint e aponte riscos e recomendações."
+    user_request = "Analyze the sprint backlog and identify risks and recommendations"
 
     plan_result = await Runner.run(
         planner_agent,
-        f"Crie um plano para esta solicitação: {user_request}"
+        f"Create a plan for this request: {user_request}"
     )
 
     plan = plan_result.final_output
-    print("\nPLANO GERADO:\n")
+    print("\nGENERATED PLAN:\n")
     print(plan)
 
     exec_result = await Runner.run(
         executor_agent,
         f"""
-        Solicitação do usuário: {user_request}
+        User request: {user_request}
 
-        Plano gerado:
+        Generated plan:
         {plan}
 
-        Agora execute a análise com base no backlog.
+        Now execute the analysis based on the backlog.
         """
     )
 
-    print("\nRESPOSTA FINAL:\n")
+    print("\nFINAL RESPONSE:\n")
     print(exec_result.final_output)
 
 if __name__ == "__main__":

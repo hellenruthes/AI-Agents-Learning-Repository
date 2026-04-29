@@ -1,39 +1,29 @@
-Exemplo com o seu ticket 1001
+Example with ticket 1001
+Existing history
+client: I cannot log in
+agent: You can try resetting your password
+client: I already tried and it did not work
+Now a new message arrives:
+client: Now it says that my account is blocked
+If the agent looks only at this new message it may give a generic answer.
+But if it has memory it understands that:
 
-Histórico já existente:
 
-client: Não consigo fazer login
-atendente: Você pode tentar redefinir sua senha
-client: Já tentei e não funcionou
+the issue started with login
 
-Agora chega uma nova mensagem:
 
-client: Agora apareceu que minha conta está bloqueada
+password reset was already attempted
 
-Se o agente olhar só essa nova mensagem, ele pode responder algo genérico.
 
-Mas se ele tiver memória, ele entende:
+it did not work
 
-o problema começou com login
-já tentaram redefinir senha
-não funcionou
-agora surgiu evidência nova: conta bloqueada
 
-Então a resposta pode evoluir direito.
+now there is new evidence: the account is blocked
 
-Fluxo conceitual
 
-nova mensagem
-   ↓
-salva no banco (conversations)
-   ↓
-busca histórico do ticket
-   ↓
-recalcula estado
-   ↓
-salva estado (ticket_memory)
-   ↓
-gera resposta
+So the response can evolve in a more accurate way.
 
+Conceptual flow
+new message   ↓save to database (conversations)   ↓retrieve ticket history   ↓recalculate state   ↓save state (ticket_memory)   ↓generate response
 
 python3 insert_message.py

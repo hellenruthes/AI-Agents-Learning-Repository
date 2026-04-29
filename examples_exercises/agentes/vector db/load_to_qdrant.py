@@ -103,6 +103,4 @@ def search(query: str):
 if __name__ == "__main__":
     ensure_collection()
     load_to_qdrant()
-    search("problema de pagamento")
-    search("não consigo entrar na conta")
-    search("política de reembolso")
+    search("payment issue")

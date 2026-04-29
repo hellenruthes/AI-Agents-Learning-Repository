@@ -1,103 +1,101 @@
+Exercise: Enriching Internal Data with External Search
+Objective
 
-Exercício: Enriquecendo dados internos com busca externa
+Create a flow in which the system:
 
-Objetivo
+analyzes internal data from the database
+identifies the most recurring topics
+uses an external tool to search for complementary content
+organizes the results to support analysis or customer support
+Scenario
 
-Criar um fluxo em que o sistema:
-
-analisa dados internos do banco
-identifica os tópicos mais recorrentes
-usa uma tool externa para buscar conteúdo complementar
-organiza os resultados para apoiar análise ou suporte
-Cenário
-
-Você tem duas tabelas no banco:
+You have two tables in the database:
 
 conversations
 feedbacks
 
-Essas tabelas contêm reclamações, dúvidas e feedbacks de usuários.
+These tables contain user complaints questions and feedback.
 
-Seu trabalho será:
+Your task will be to:
 
-identificar os temas mais frequentes
-buscar artigos externos sobre esses temas usando Exa
-salvar esses arquivos como .txt na pasta exe8/arquivos
-O que os alunos devem construir
-Parte 1 — identificar temas frequentes
+identify the most frequent topics
+search for external articles about those topics using Exa
+save those files as .txt in the exe8/arquivos folder
+What students should build
+Part 1 — Identify frequent topics
 
-Criar uma função que analise conversations ou feedbacks e encontre os assuntos mais recorrentes.
+Create a function that analyzes conversations or feedbacks and finds the most recurring topics.
 
-Exemplo de temas:
+Example topics:
 
 login
-pagamento
-lentidão
-travamento
-entrega
-cancelamento
+payment
+slowness
+freezing
+delivery
+cancellation
 
-Eles podem fazer isso por palavras-chave.
+They can do this using keywords.
 
-Exemplo:
+Example:
 
 def get_top_topics(feedbacks_df) -> list[tuple[str, int]]:
     ...
 
-Saída esperada:
+Expected output:
 
 [
-    ("pagamento", 8),
+    ("payment", 8),
     ("login", 6),
-    ("lentidão", 5)
+    ("slowness", 5)
 ]
-Parte 2 — criar a tool externa
+Part 2 — Create the external tool
 
-Criar uma tool com Exa para buscar artigos relacionados a cada tema.
+Create a tool using Exa to search for articles related to each topic.
 
-Exemplo:
+Example:
 
 def search_external_articles(topic: str) -> list[dict]:
     ...
 
-Saída esperada:
+Expected output:
 
 [
     {
-        "topic": "pagamento",
+        "topic": "payment",
         "title": "Common Causes of Payment Failures",
         "url": "...",
         "text": "..."
     }
 ]
-Parte 3 — enriquecer os tópicos
+Part 3 — Enrich the topics
 
-Para cada tópico frequente, buscar 2 ou 3 artigos externos.
+For each frequent topic search for 2 or 3 external articles.
 
-Exemplo:
+Example:
 
 def enrich_topics_with_external_articles(topics: list[str]) -> dict:
     ...
 
-Saída esperada:
+Expected output:
 
 {
-    "pagamento": [...],
+    "payment": [...],
     "login": [...],
-    "lentidão": [...]
+    "slowness": [...]
 }
-Parte 4 — exibir resultado
+Part 4 — Display the result
 
-Mostrar algo como:
+Show something like:
 
-Tópicos mais frequentes:
-1. pagamento (8)
+Most frequent topics:
+1. payment (8)
 2. login (6)
-3. lentidão (5)
+3. slowness (5)
 
-Artigos externos encontrados:
+External articles found:
 
-[pagamento]
+[payment]
 - ...
 - ...
 
@@ -105,6 +103,6 @@ Artigos externos encontrados:
 - ...
 - ...
 
-[lentidão]
+[slowness]
 - ...
 - ...

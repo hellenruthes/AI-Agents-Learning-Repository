@@ -6,18 +6,18 @@ from agent_react import react_agent
 load_dotenv()
 
 async def main():
-    print("1. Entrou no main")
-    print("2. Vai chamar o Runner")
+    print("1. Entered main")
+    print("2. Calling Runner")
 
     result = await Runner.run(
         react_agent,
-        "Analise o ticket 1001"
+        "Analyze ticket 1001"
     )
 
-    print("3. Runner terminou")
-    print("\nRESPOSTA FINAL:\n")
+    print("3. Runner finished")
+    print("\nFINAL RESPONSE:\n")
     print(result.final_output)
 
 if __name__ == "__main__":
-    print("0. Iniciando script")
+    print("0. Starting script")
     asyncio.run(main())
